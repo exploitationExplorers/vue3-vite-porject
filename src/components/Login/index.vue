@@ -27,9 +27,24 @@
 import { ref } from 'vue'
 import login from '@/components/login/loginForm.vue'
 import register from '@/components/login/registerForm.vue'
+import { Storage } from '../library/localstorage'
+
+const s1 = new Storage()
+//5秒后过期
+s1.set('a',123,new Date().getTime() + 5000)
+setTimeout(()=>{
+  console.log(s1.get('a'));
+  console.log(localStorage.getItem('a'));
+},6030)
+// setInterval(()=>{
+//   const a = s1.get('a')
+//   console.log(a);
+  
+// },5020)
 const onClick = () => {
   vari.value = !vari.value
 }
+ 
 let vari = ref<boolean>(false)
 </script>
 
